@@ -1,0 +1,217 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ustawienia podstawowe */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8; /* Zwiększona wysokość linii dla lepszej czytelności */
+    background-color: #f4f4f9;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 1rem; /* Dodatkowe odstępy od krawędzi */
+    font-size: 16px; /* Ustawiona podstawowa wielkość czcionki */
+    font-smoothing: antialiased; /* Lepsze wygładzanie czcionki */
+}
+
+/* Nagłówek */
+header {
+    background: #2E7D32; /* Zmiana na ciemniejszy odcień zieleni dla lepszego kontrastu */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+    font-variant: small-caps; /* Estetyczne litery w nagłówku */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #FFC107; /* Kolor akcentu w nagłówku */
+}
+
+header h2 {
+    margin-top: 0.5rem;
+    animation: slideInDown 1s ease-out;
+    font-size: 2rem; /* Większy rozmiar czcionki dla nagłówka */
+}
+
+/* Animacja slideInDown */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Sekcje */
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    background: #fff;
+    padding: 2rem; /* Zwiększone padding dla lepszej czytelności */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+section:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+section h3 {
+    margin-bottom: 1rem;
+    color: #2E7D32; /* Spójny kolor z nagłówkiem */
+    font-size: 1.5rem; /* Większy rozmiar czcionki dla sekcji */
+}
+
+/* Listy */
+ol {
+    margin-left: 1.5rem;
+    padding-left: 1rem; /* Dodany padding dla lepszego oddzielenia od treści */
+}
+
+ol li {
+    margin-bottom: 0.75rem; /* Zwiększona przerwa dla lepszej czytelności */
+    line-height: 1.8; /* Spójna wysokość linii w listach */
+}
+
+/* Akapity */
+p {
+    margin-bottom: 1.5rem; /* Dodane marginesy dla lepszego oddzielenia akapitów */
+    line-height: 1.8; /* Spójna wysokość linii w akapitach */
+}
+
+/* Linki */
+a {
+    color: #2E7D32; /* Spójny kolor z nagłówkiem */
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+    font-weight: bold; /* Wyróżnione linki */
+}
+img {
+    width: 50%;
+    height: 50%;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #2E7D32;
+    left: 0;
+    bottom: -2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+a:hover {
+    color: #1B5E20; /* Ciemniejszy odcień zieleni dla wyróżnienia */
+}
+
+/* Stopka */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    transition: background 0.3s, color 0.3s;
+    font-size: 0.9rem; /* Mniejszy rozmiar czcionki dla stopki */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+h4 {
+    font-size: 15pt;
+}
+
+h5 {
+    font-size: 12pt;
+}
+
+/* Spis treści */
+.toc {
+    background: #e2e2e2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.toc h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc ul li {
+    margin-bottom: 10px;
+}
+
+.toc ul li a {
+    display: block;
+    padding: 5px;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.toc ul li a:hover {
+    background: #2E7D32; /* Spójny kolor z nagłówkiem */
+    color: #fff;
+}
+
+/* Podlinkowanie sekcji */
+section[id] {
+    scroll-margin-top: 80px; /* Odstęp od góry strony przy nawigacji do sekcji */
+}
