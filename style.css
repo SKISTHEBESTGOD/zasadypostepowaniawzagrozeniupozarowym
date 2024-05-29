@@ -8,18 +8,18 @@
 /* Ustawienia podstawowe */
 body {
     font-family: 'Arial', sans-serif;
-    line-height: 1.8; /* Zwiększona wysokość linii dla lepszej czytelności */
+    line-height: 1.8;
     background-color: #f4f4f9;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
-    padding: 1rem; /* Dodatkowe odstępy od krawędzi */
-    font-size: 16px; /* Ustawiona podstawowa wielkość czcionki */
-    font-smoothing: antialiased; /* Lepsze wygładzanie czcionki */
+    padding: 1rem;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Nagłówek */
 header {
-    background: #2E7D32; /* Zmiana na ciemniejszy odcień zieleni dla lepszego kontrastu */
+    background: linear-gradient(to right, #2E7D32, #4CAF50);
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -28,7 +28,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background 0.3s;
-    font-variant: small-caps; /* Estetyczne litery w nagłówku */
+    font-variant: small-caps;
 }
 
 header nav ul {
@@ -49,13 +49,13 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #FFC107; /* Kolor akcentu w nagłówku */
+    color: #FFC107;
 }
 
 header h2 {
     margin-top: 0.5rem;
     animation: slideInDown 1s ease-out;
-    font-size: 2rem; /* Większy rozmiar czcionki dla nagłówka */
+    font-size: 2rem;
 }
 
 /* Animacja slideInDown */
@@ -78,51 +78,62 @@ main {
 section {
     margin-bottom: 2rem;
     background: #fff;
-    padding: 2rem; /* Zwiększone padding dla lepszej czytelności */
-    border-radius: 5px;
+    padding: 2rem;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s, transform 0.3s;
+    border-left: 5px solid #2E7D32;
+    background: #fefefe;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 section:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
 
 section h3 {
     margin-bottom: 1rem;
-    color: #2E7D32; /* Spójny kolor z nagłówkiem */
-    font-size: 1.5rem; /* Większy rozmiar czcionki dla sekcji */
+    color: #2E7D32;
+    font-size: 1.5rem;
+}
+
+/* Animacja fadeInUp */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Listy */
 ol {
     margin-left: 1.5rem;
-    padding-left: 1rem; /* Dodany padding dla lepszego oddzielenia od treści */
+    padding-left: 1rem;
 }
 
 ol li {
-    margin-bottom: 0.75rem; /* Zwiększona przerwa dla lepszej czytelności */
-    line-height: 1.8; /* Spójna wysokość linii w listach */
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
 }
 
 /* Akapity */
 p {
-    margin-bottom: 1.5rem; /* Dodane marginesy dla lepszego oddzielenia akapitów */
-    line-height: 1.8; /* Spójna wysokość linii w akapitach */
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
 }
 
 /* Linki */
 a {
-    color: #2E7D32; /* Spójny kolor z nagłówkiem */
+    color: #2E7D32;
     text-decoration: none;
     position: relative;
     transition: color 0.3s;
-    font-weight: bold; /* Wyróżnione linki */
-}
-img {
-    width: 50%;
-    height: 50%;
+    font-weight: bold;
 }
 
 a::after {
@@ -144,7 +155,7 @@ a:hover::after {
 }
 
 a:hover {
-    color: #1B5E20; /* Ciemniejszy odcień zieleni dla wyróżnienia */
+    color: #1B5E20;
 }
 
 /* Stopka */
@@ -155,7 +166,7 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
     transition: background 0.3s, color 0.3s;
-    font-size: 0.9rem; /* Mniejszy rozmiar czcionki dla stopki */
+    font-size: 0.9rem;
 }
 
 /* Responsywność */
@@ -166,12 +177,15 @@ footer {
     }
 }
 
+/* Dodatkowe nagłówki */
 h4 {
-    font-size: 15pt;
+    font-size: 1.25rem;
+    color: #1B5E20;
 }
 
 h5 {
-    font-size: 12pt;
+    font-size: 1rem;
+    color: #1B5E20;
 }
 
 /* Spis treści */
@@ -207,11 +221,72 @@ h5 {
 }
 
 .toc ul li a:hover {
-    background: #2E7D32; /* Spójny kolor z nagłówkiem */
+    background: #2E7D32;
     color: #fff;
 }
 
 /* Podlinkowanie sekcji */
 section[id] {
-    scroll-margin-top: 80px; /* Odstęp od góry strony przy nawigacji do sekcji */
+    scroll-margin-top: 80px;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #2E7D32;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #1B5E20;
+}
+
+/* Subtelny cień dla nagłówka */
+header {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Poprawki responsywności dla sekcji */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+    header nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Ulepszone animacje na hover dla linków i przycisków */
+a, button, .btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a:hover, button:hover, .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Nowe elementy dla responsywności */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    section {
+        padding: 1.5rem;
+    }
 }
